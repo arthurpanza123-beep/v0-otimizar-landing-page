@@ -69,16 +69,17 @@ export function VideoSection() {
               aria-label="Reproduzir vídeo"
             >
               <Image
-                src="/images/creator-setup.png"
-                alt="Prévia do vídeo do método FutMoney"
+                src="/images/video-thumb.png"
+                alt="Capa do vídeo FutMoney"
                 fill
+                priority
                 className="object-cover"
               />
               <span
                 className="absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(5,5,5,0.45) 0%, rgba(5,5,5,0.82) 100%)",
+                    "radial-gradient(ellipse at center, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.5) 100%)",
                 }}
               />
               <span
