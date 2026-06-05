@@ -54,7 +54,9 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
+:root,
+:where(html):root,
+html:root:root {
   --background: #030303;
   --foreground: #ffffff;
   --card: #080808;
