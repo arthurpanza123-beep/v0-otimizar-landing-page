@@ -187,10 +187,10 @@ export function Hero() {
           />
 
           <h1
-            className="font-black leading-[1.08] mb-6"
+            className="font-black leading-[1.08] mb-5"
             style={{
               fontFamily: "'Clash Display', 'Space Grotesk', var(--font-space), system-ui, sans-serif",
-              fontSize: "clamp(2.1rem, 3.8vw, 3.5rem)",
+              fontSize: "clamp(2.5rem, 4.2vw, 3.6rem)",
               fontWeight: 700,
               letterSpacing: "-0.01em",
               wordSpacing: "0.05em",
@@ -213,18 +213,31 @@ export function Hero() {
             </span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline — frase curta de compra rápida */}
           <p
-            className="text-white/75 leading-relaxed mb-8 max-w-[540px]"
+            className="text-white/90 leading-relaxed mb-3 max-w-[540px] font-medium"
             style={{
               fontFamily: "var(--font-inter), system-ui, sans-serif",
-              fontSize: "clamp(1rem, 1.7vw, 1.15rem)",
+              fontSize: "clamp(1.1rem, 1.9vw, 1.3rem)",
             }}
           >
-            Aprenda do zero a transformar sua paixão por futebol em conteúdo,
-            audiência e uma{" "}
-            <span className="text-white font-semibold">nova oportunidade de renda no digital.</span>
+            Curso prático para criar conteúdo de futebol, crescer páginas e{" "}
+            <span className="text-[#d4af37] font-semibold">monetizar no digital.</span>
           </p>
+
+          {/* Aviso anti-público-errado — logo no topo */}
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg mb-8"
+            style={{
+              background: "rgba(212,175,55,0.08)",
+              border: "1px solid rgba(212,175,55,0.25)",
+            }}
+          >
+            <BadgeCheck className="w-4 h-4 text-[#d4af37] flex-shrink-0" />
+            <span className="text-[13px] sm:text-sm text-white/85 font-medium leading-snug">
+              <span className="text-white font-bold">Não é aposta. Não é bet.</span> É criação de conteúdo + estratégia digital.
+            </span>
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-5">
@@ -276,17 +289,17 @@ export function Hero() {
           </div>
 
           {/* Selo de segurança perto do CTA */}
-          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-12 text-[13px] text-white/55">
-            <span className="inline-flex items-center gap-1.5">
-              <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Curso prático
-            </span>
-            <span className="text-white/20">•</span>
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-12 text-[13px] text-white/75 font-medium">
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Acesso imediato
             </span>
-            <span className="text-white/20">•</span>
+            <span className="text-white/30">•</span>
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Garantia de 7 dias
+            </span>
+            <span className="text-white/30">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Conteúdo prático
             </span>
           </div>
 
@@ -315,7 +328,7 @@ export function Hero() {
               >
                 +<AnimatedCounter value={40000000} />
               </span>
-              <span className="text-sm text-white/55 font-medium">de views geradas</span>
+              <span className="text-sm text-white/75 font-medium">de views geradas</span>
             </motion.div>
 
             <motion.div
@@ -341,7 +354,7 @@ export function Hero() {
               >
                 +<AnimatedCounter value={500} />
               </span>
-              <span className="text-sm text-white/55 font-medium">criadores impactados</span>
+              <span className="text-sm text-white/75 font-medium">criadores impactados</span>
             </motion.div>
 
             <motion.div
@@ -367,7 +380,7 @@ export function Hero() {
               >
                 Método
               </span>
-              <span className="text-sm text-white/55 font-medium">validado na prática</span>
+              <span className="text-sm text-white/75 font-medium">validado na prática</span>
             </motion.div>
           </div>
 

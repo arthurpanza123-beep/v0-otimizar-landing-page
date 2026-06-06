@@ -27,12 +27,12 @@ export default function Page() {
         <Positioning />
         <Learn />
         <ForWho />
+        <Testimonials />
         <PlatformMarquee />
         <Problem />
         <Method />
         <Journey />
         <BeforeAfter />
-        <Testimonials />
         <BlackBox />
         <Pricing />
         <FAQ />

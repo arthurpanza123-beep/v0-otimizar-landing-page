@@ -123,11 +123,11 @@ export function VideoSection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
-          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 mt-4 text-[13px] text-white/55">
+          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 mt-4 text-[13px] text-white/75 font-medium">
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Acesso imediato
             </span>
-            <span className="text-white/20">•</span>
+            <span className="text-white/30">•</span>
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Garantia de 7 dias
             </span>
