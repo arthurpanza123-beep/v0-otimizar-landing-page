@@ -9,14 +9,14 @@ export function Footer() {
           {/* Decorative line */}
           <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent mb-12" />
           
-          {/* Logo Panza */}
+          {/* Logo Central Play Plus */}
           <Link href="/" className="mb-6 group">
             <Image
-              src="/images/logo-panza.png"
-              alt="Panza Footy Magic"
-              width={180}
-              height={180}
-              className="h-20 sm:h-24 w-auto opacity-80 group-hover:opacity-100 transition-opacity"
+              src="/images/logo-central-play-plus.png"
+              alt="Central Play Plus"
+              width={320}
+              height={213}
+              className="h-16 sm:h-20 w-auto opacity-80 group-hover:opacity-100 transition-opacity"
             />
           </Link>
 
