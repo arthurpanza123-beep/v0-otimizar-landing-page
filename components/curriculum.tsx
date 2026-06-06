@@ -47,7 +47,7 @@ export function Curriculum() {
   ]
 
   return (
-    <section id="conteudo" className="relative py-24 lg:py-32 overflow-hidden scroll-mt-20">
+    <section id="conteudo" className="relative pt-8 pb-16 lg:pt-10 lg:pb-24 overflow-hidden scroll-mt-20">
       <div className="noise-overlay" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#d4af37]/[0.02] rounded-full blur-[150px] ambient-light" />
 

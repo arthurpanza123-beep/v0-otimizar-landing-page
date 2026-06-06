@@ -38,7 +38,7 @@ export function Included() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="noise-overlay" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#d4af37]/[0.02] rounded-full blur-[150px] ambient-light" />
 

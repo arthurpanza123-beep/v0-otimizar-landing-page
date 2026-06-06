@@ -13,13 +13,13 @@ const platforms = [
 
 export function PlatformMarquee() {
   return (
-    <div className="py-16 overflow-hidden relative">
+    <div className="py-10 overflow-hidden relative">
       {/* Gradient masks */}
       <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-[#050505] to-transparent" />
       <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-[#050505] to-transparent" />
       
       {/* Section label */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-6">
         <span className="text-xs uppercase tracking-[0.3em] text-white/30 font-medium">
           Domine todas as plataformas
         </span>

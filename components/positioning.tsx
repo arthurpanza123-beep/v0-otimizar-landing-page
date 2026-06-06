@@ -31,7 +31,7 @@ export function Positioning() {
   ]
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative pt-16 pb-8 lg:pt-24 lg:pb-10 overflow-hidden">
       {/* Noise */}
       <div className="noise-overlay" />
       
@@ -40,7 +40,7 @@ export function Positioning() {
 
       <div className="relative max-w-[1300px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-12">
           <ScrollReveal direction="left">
             <div>
               <h2 

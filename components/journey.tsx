@@ -14,7 +14,7 @@ export function Journey() {
   ]
 
   return (
-    <section id="conteudo" className="relative py-28 lg:py-36 overflow-hidden scroll-mt-20">
+    <section id="conteudo" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-20">
       {/* Noise */}
       <div className="noise-overlay" />
       

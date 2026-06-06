@@ -21,14 +21,23 @@ export function Hero() {
           src="/images/hero-futmoney.png"
           alt="Setup premium de criador de conteúdo de futebol"
           fill
-          className="object-cover object-center"
+          className="object-cover object-[68%_center] scale-105 blur-[3px] lg:object-center lg:scale-100 lg:blur-0"
           priority
           quality={100}
         />
 
-        {/* Escurecimento esquerdo — legibilidade do texto */}
+        {/* Escurecimento MOBILE — vertical forte, deixa o texto pop */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 lg:hidden"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(5,5,5,0.86) 0%, rgba(5,5,5,0.74) 38%, rgba(5,5,5,0.82) 72%, rgba(5,5,5,1) 100%)",
+          }}
+        />
+
+        {/* Escurecimento DESKTOP — esquerdo, legibilidade do texto */}
+        <div
+          className="absolute inset-0 hidden lg:block"
           style={{
             background:
               "linear-gradient(to right, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.72) 30%, rgba(5,5,5,0.3) 55%, transparent 72%)",

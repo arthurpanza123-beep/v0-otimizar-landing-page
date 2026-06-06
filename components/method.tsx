@@ -15,7 +15,7 @@ export function Method() {
   ]
 
   return (
-    <section id="metodo" className="relative py-28 lg:py-36 overflow-hidden scroll-mt-20">
+    <section id="metodo" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-20">
       {/* Noise */}
       <div className="noise-overlay" />
 

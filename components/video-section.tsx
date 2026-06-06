@@ -5,13 +5,15 @@ import Image from "next/image"
 import { Play, BadgeCheck } from "lucide-react"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { VideoModal } from "./video-modal"
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
-  const videoUrl = "https://drive.google.com/file/d/1fZwvFR0ax7FqQr61kpBI3EoSqM1v4um0/preview"
 
   return (
     <section id="video" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-20 bg-[#050505]">
+      <VideoModal isOpen={isPlaying} onClose={() => setIsPlaying(false)} />
+
       {/* Noise */}
       <div className="noise-overlay" />
 
@@ -54,49 +56,40 @@ export function VideoSection() {
             boxShadow: "0 0 70px rgba(212,175,55,0.12), 0 25px 70px rgba(0,0,0,0.7)",
           }}
         >
-          {isPlaying ? (
-            <iframe
-              src={`${videoUrl}?autoplay=1`}
-              className="w-full h-full"
-              allow="autoplay; encrypted-media; fullscreen"
-              allowFullScreen
-              style={{ border: "none" }}
+          {/* Player grande — abre modal fullscreen (funciona no mobile) */}
+          <button
+            onClick={() => setIsPlaying(true)}
+            className="group absolute inset-0 w-full h-full flex items-center justify-center"
+            aria-label="Reproduzir vídeo"
+          >
+            <Image
+              src="/images/video-thumb.png"
+              alt="Capa do vídeo FutMoney"
+              fill
+              priority
+              className="object-cover"
             />
-          ) : (
-            <button
-              onClick={() => setIsPlaying(true)}
-              className="group absolute inset-0 w-full h-full flex items-center justify-center"
-              aria-label="Reproduzir vídeo"
+            <span
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.5) 100%)",
+              }}
+            />
+            <span
+              className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full transition-transform duration-300 group-hover:scale-110"
+              style={{
+                background: "linear-gradient(135deg, #f5dc6a 0%, #d4af37 45%, #b8860b 100%)",
+                boxShadow: "0 0 50px rgba(212,175,55,0.6), 0 8px 30px rgba(0,0,0,0.6)",
+              }}
             >
-              <Image
-                src="/images/video-thumb.png"
-                alt="Capa do vídeo FutMoney"
-                fill
-                priority
-                className="object-cover"
-              />
-              <span
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at center, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.5) 100%)",
-                }}
-              />
-              <span
-                className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full transition-transform duration-300 group-hover:scale-110"
-                style={{
-                  background: "linear-gradient(135deg, #f5dc6a 0%, #d4af37 45%, #b8860b 100%)",
-                  boxShadow: "0 0 50px rgba(212,175,55,0.6), 0 8px 30px rgba(0,0,0,0.6)",
-                }}
-              >
-                <Play className="w-8 h-8 text-black fill-black ml-1" />
-              </span>
-              <span
-                className="absolute z-10 inline-flex h-20 w-20 rounded-full bg-[#d4af37]/40 animate-ping"
-                style={{ animationDuration: "2.5s" }}
-              />
-            </button>
-          )}
+              <Play className="w-8 h-8 text-black fill-black ml-1" />
+            </span>
+            <span
+              className="absolute z-10 inline-flex h-20 w-20 rounded-full bg-[#d4af37]/40 animate-ping"
+              style={{ animationDuration: "2.5s" }}
+            />
+          </button>
         </motion.div>
 
         {/* CTA abaixo do vídeo */}

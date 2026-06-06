@@ -22,7 +22,7 @@ export function BeforeAfter() {
   ]
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       {/* Noise */}
       <div className="noise-overlay" />
 
