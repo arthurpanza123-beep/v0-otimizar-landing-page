@@ -88,10 +88,10 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
         >
           <iframe
             src={videoUrl}
-            className="absolute inset-0 w-full h-full"
+            className="absolute left-1/2 top-1/2 h-full w-full"
             allow="autoplay; encrypted-media; fullscreen"
             allowFullScreen
-            style={{ border: "none" }}
+            style={{ border: "none", transform: "translate(-50%, -50%) scale(1.04)" }}
           />
         </div>
 
