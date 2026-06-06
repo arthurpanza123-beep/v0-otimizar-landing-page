@@ -2,8 +2,7 @@
 
 import { useEffect, useCallback, useState } from "react"
 import { createPortal } from "react-dom"
-import { X, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { X } from "lucide-react"
 
 interface VideoModalProps {
   isOpen: boolean
@@ -22,74 +21,56 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   )
 
   useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape)
-      document.body.style.overflow = "hidden"
-    }
+    if (!isOpen) return
+    document.addEventListener("keydown", handleEscape)
+    document.body.style.overflow = "hidden"
     return () => {
       document.removeEventListener("keydown", handleEscape)
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = ""
     }
   }, [isOpen, handleEscape])
 
   if (!isOpen || !mounted) return null
 
   return createPortal(
-    <>
-      {/* Overlay preto atrás do iframe */}
+    <div
+      className="fixed inset-0 z-[100] flex flex-col bg-black"
+      onClick={onClose}
+    >
+      {/* Barra superior: botão fechar */}
       <div
-        className="fixed inset-0 z-[100] bg-black"
-        onClick={onClose}
-      />
-
-      {/* Botão fechar — acima do iframe */}
-      <button
-        onClick={onClose}
-        aria-label="Fechar vídeo"
-        className="fixed top-4 right-4 z-[102] w-11 h-11 flex items-center justify-center rounded-full text-white"
-        style={{ background: "rgba(0,0,0,0.7)", border: "1px solid rgba(255,255,255,0.2)" }}
-      >
-        <X className="w-5 h-5" />
-      </button>
-
-      {/* iframe fullscreen — ocupa tela inteira sem corte nem escala */}
-      <iframe
-        src={videoUrl}
-        allow="autoplay; encrypted-media; fullscreen"
-        allowFullScreen
-        className="fixed z-[101]"
-        style={{
-          border: "none",
-          top: "56px",          /* logo abaixo do botão fechar */
-          left: 0,
-          right: 0,
-          bottom: "96px",       /* espaço para o CTA */
-          width: "100%",
-          height: "calc(100% - 56px - 96px)",
-        }}
-      />
-
-      {/* CTA — fixo na base acima do iframe */}
-      <div
-        className="fixed bottom-0 left-0 right-0 z-[102] px-4 pb-6 pt-3"
-        style={{ background: "linear-gradient(to top, #000 70%, transparent)" }}
+        className="flex items-center justify-end px-4 shrink-0"
+        style={{ height: "52px" }}
         onClick={(e) => e.stopPropagation()}
       >
-        <Link
-          href="https://pay.kiwify.com.br/AA4gU1n?afid=6BwLcUwY"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-base text-black"
-          style={{
-            background: "linear-gradient(135deg, #f0d060 0%, #d4af37 50%, #b8860b 100%)",
-            boxShadow: "0 0 24px rgba(212,175,55,0.35)",
-          }}
+        <button
+          onClick={onClose}
+          aria-label="Fechar vídeo"
+          className="w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white transition-colors"
+          style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
         >
-          Quero garantir minha vaga
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+          <X className="w-5 h-5" />
+        </button>
       </div>
-    </>,
+
+      {/* Player: ocupa todo o espaço restante, sem corte, sem escala */}
+      <div
+        className="flex-1 min-h-0"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <iframe
+          src={videoUrl}
+          allow="autoplay; encrypted-media; fullscreen"
+          allowFullScreen
+          style={{
+            border: "none",
+            width: "100%",
+            height: "100%",
+            display: "block",
+          }}
+        />
+      </div>
+    </div>,
     document.body
   )
 }
