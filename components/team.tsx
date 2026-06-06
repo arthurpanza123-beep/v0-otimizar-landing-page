@@ -4,33 +4,32 @@ import { motion } from "framer-motion"
 import { AtSign, Tv } from "lucide-react"
 
 export function Team() {
-  // Placeholders — troque nome, @ e o resultado de cada integrante.
-  // Para adicionar a foto/logo, coloque o arquivo em /public/images e
-  // preencha o campo "image" (ex: "/images/membro-1.png").
+  // Para o Thumbmaker: preencha "name", "result" e "handle", e adicione a
+  // logo em /public/images, apontando o campo "image".
   const members = [
     {
-      name: "Nome do Integrante",
-      role: "Editor & Estrategista",
+      name: "Panza Footy Magic",
+      role: "Edição & Produção",
       result: "+X milhões de views",
-      handle: "@usuario",
-      image: "",
+      handle: "@panzafootymagic",
+      image: "/images/logo-panza.png",
       initials: "PF",
     },
     {
-      name: "Nome do Integrante",
-      role: "Especialista em Thumbnail",
+      name: "A definir",
+      role: "Thumbnail & Design",
       result: "+X canais escalados",
       handle: "@usuario",
       image: "",
-      initials: "PF",
+      initials: "TM",
     },
     {
-      name: "Nome do Integrante",
+      name: "Falso 9",
       role: "SEO & Algoritmo",
-      result: "+X anos de mercado",
-      handle: "@usuario",
-      image: "",
-      initials: "PF",
+      result: "+X milhões de views",
+      handle: "@falso9",
+      image: "/images/logo-falso9.png",
+      initials: "F9",
     },
   ]
 
@@ -87,7 +86,7 @@ export function Team() {
               >
                 {member.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={member.image || "/placeholder.svg"} alt={member.name} className="w-full h-full object-cover" />
+                  <img src={member.image || "/placeholder.svg"} alt={member.name} className="w-full h-full object-contain p-1.5" />
                 ) : (
                   <span
                     className="text-2xl font-black text-[#d4af37]"
