@@ -8,25 +8,25 @@ export function Testimonials() {
   const testimonials = [
     {
       name: "Caio Arantes",
-      role: "Criador de conteúdo",
+      role: "Criador de conteúdo de futebol",
       image: "/images/testimonial-1.png",
-      content: "O FutMoney mudou completamente minha visão. Em 3 meses, saí de 500 para 50 mil seguidores.",
+      content: "Eu postava direto e não passava de 500 seguidores. Apliquei o método de thumb e edição e em 3 meses bati 50 mil. Mudou meu jogo.",
       rating: 5,
-      highlight: "500 para 50k",
+      highlight: "500 → 50k seguidores",
     },
     {
-      name: "Patryck Sander",
-      role: "Editor de vídeos",
+      name: "Larissa Mendes",
+      role: "Editora de vídeos",
       image: "/images/testimonial-2.png",
-      content: "Antes editava por horas sem resultado. Agora entendo o que funciona e meus vídeos nunca engajaram tanto.",
+      content: "Eu editava horas e o vídeo morria com 200 views. Depois que entendi os cortes e o ritmo que eles ensinam, meus Reels começaram a estourar.",
       rating: 5,
-      highlight: "Engajamento recorde",
+      highlight: "Reels viralizando",
     },
     {
-      name: "Ramon",
+      name: "Ramon Teixeira",
       role: "Criador de conteúdo",
       image: "/images/testimonial-3.png",
-      content: "A Caixa Preta sozinha já valeu o investimento. Economizei meses de erro com os bastidores.",
+      content: "A Caixa Preta sozinha já pagou o curso. Os bastidores me pouparam meses de tentativa e erro que eu ia gastar sozinho.",
       rating: 5,
       highlight: "Economizou meses",
     },
@@ -52,8 +52,8 @@ export function Testimonials() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Resultados</span>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.12]"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em" }}
           >
             <span className="text-white">Resultados de quem </span>
             <span className="text-[#d4af37] gold-glow-text">entrou em campo.</span>
@@ -70,10 +70,11 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -6 }}
-              className="group p-6 lg:p-7 rounded-2xl card-shine"
+              className="group p-6 lg:p-7 rounded-2xl card-shine transition-colors duration-300 hover:border-[rgba(212,175,55,0.25)]"
               style={{
-                background: "linear-gradient(165deg, rgba(18,18,14,0.8) 0%, rgba(8,8,6,0.95) 100%)",
-                border: "1px solid rgba(212,175,55,0.06)",
+                background: "linear-gradient(165deg, rgba(20,20,15,0.85) 0%, rgba(8,8,6,0.96) 100%)",
+                border: "1px solid rgba(212,175,55,0.12)",
+                boxShadow: "0 0 40px rgba(0,0,0,0.4)",
               }}
             >
               {/* Highlight */}
@@ -85,9 +86,9 @@ export function Testimonials() {
               </div>
 
               {/* Quote */}
-              <Quote className="w-8 h-8 text-[#d4af37]/10 mb-4" />
+              <Quote className="w-8 h-8 text-[#d4af37]/25 mb-4" />
 
-              <p className="text-white/60 leading-relaxed text-[15px] mb-6">
+              <p className="text-white/80 leading-relaxed text-[15px] mb-6">
                 {`"${t.content}"`}
               </p>
 
@@ -99,16 +100,16 @@ export function Testimonials() {
               </div>
 
               {/* Author */}
-              <div className="pt-5 border-t border-white/[0.04] flex items-center gap-3.5">
+              <div className="pt-5 border-t border-white/[0.06] flex items-center gap-3.5">
                 <div 
                   className="relative w-11 h-11 rounded-full overflow-hidden shrink-0"
-                  style={{ border: "2px solid rgba(212,175,55,0.2)" }}
+                  style={{ border: "2px solid rgba(212,175,55,0.35)", boxShadow: "0 0 16px rgba(212,175,55,0.18)" }}
                 >
-                  <Image src={t.image} alt={t.name} fill className="object-cover" />
+                  <Image src={t.image || "/placeholder.svg"} alt={t.name} fill className="object-cover" />
                 </div>
                 <div>
                   <p className="font-semibold text-white text-[15px]">{t.name}</p>
-                  <p className="text-white/35 text-xs">{t.role}</p>
+                  <p className="text-white/50 text-xs">{t.role}</p>
                 </div>
               </div>
             </motion.div>

@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { Video, Users, DollarSign } from "lucide-react"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./scroll-reveal"
-import { AnimatedCounter } from "./animated-counter"
 import { motion } from "framer-motion"
 
 export function Positioning() {
@@ -12,7 +11,7 @@ export function Positioning() {
       icon: Video,
       title: "Criar conteúdo",
       description: "Aprenda a produzir vídeos que prendem atenção e viralizam.",
-      stat: "40M+",
+      stat: "100M+",
       statLabel: "views",
     },
     {
@@ -45,8 +44,8 @@ export function Positioning() {
           <ScrollReveal direction="left">
             <div>
               <h2 
-                className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold mb-6 leading-[1.1] tracking-tight"
-                style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+                className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold mb-6 leading-[1.12]"
+                style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
               >
                 <span className="text-white">O futebol já prende sua atenção. </span>
                 <span className="text-[#d4af37] gold-glow-text">
@@ -92,9 +91,9 @@ export function Positioning() {
                 }}
               >
                 <div className="text-2xl font-black text-[#d4af37]">
-                  +<AnimatedCounter value={500} />
+                  +100M
                 </div>
-                <div className="text-xs text-white/45">criadores ativos</div>
+                <div className="text-xs text-white/45">views geradas</div>
               </motion.div>
             </div>
           </ScrollReveal>

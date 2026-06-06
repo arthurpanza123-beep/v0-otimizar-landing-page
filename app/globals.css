@@ -54,7 +54,15 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
+/* Garante espaçamento legível entre palavras nos títulos Clash Display,
+   mesmo quando combinados com tracking-tight (evita palavras coladas) */
+h1, h2, h3, h4 {
+  word-spacing: 0.06em;
+}
+
+:root,
+:where(html):root,
+html:root:root {
   --background: #030303;
   --foreground: #ffffff;
   --card: #080808;

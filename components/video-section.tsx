@@ -34,8 +34,8 @@ export function VideoSection() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Vídeo</span>
           </div>
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-balance"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance leading-[1.15]"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
           >
             <span className="text-white">Assista e entenda </span>
             <span className="text-[#d4af37] gold-glow-text">como funciona o método</span>
@@ -69,16 +69,17 @@ export function VideoSection() {
               aria-label="Reproduzir vídeo"
             >
               <Image
-                src="/images/creator-setup.png"
-                alt="Prévia do vídeo do método FutMoney"
+                src="/images/video-thumb.png"
+                alt="Capa do vídeo FutMoney"
                 fill
+                priority
                 className="object-cover"
               />
               <span
                 className="absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(5,5,5,0.45) 0%, rgba(5,5,5,0.82) 100%)",
+                    "radial-gradient(ellipse at center, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.5) 100%)",
                 }}
               />
               <span
@@ -122,11 +123,11 @@ export function VideoSection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Link>
-          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 mt-4 text-[13px] text-white/55">
+          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5 mt-4 text-[13px] text-white/75 font-medium">
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Acesso imediato
             </span>
-            <span className="text-white/20">•</span>
+            <span className="text-white/30">•</span>
             <span className="inline-flex items-center gap-1.5">
               <BadgeCheck className="w-4 h-4 text-[#d4af37]" /> Garantia de 7 dias
             </span>

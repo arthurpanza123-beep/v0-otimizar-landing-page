@@ -18,6 +18,7 @@ export function Header() {
   ]
 
   return (
+    <>
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-2xl border-b border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -72,17 +73,35 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - overlay fullscreen (fora do header para evitar o backdrop-blur como containing block) */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/[0.05]">
-          <nav className="flex flex-col px-5 py-4 gap-1">
+        <div className="lg:hidden fixed inset-0 z-[60] bg-[#050505] flex flex-col">
+          {/* Barra superior do overlay com logo e fechar */}
+          <div className="flex items-center justify-between h-16 px-5 border-b border-white/[0.06] shrink-0">
+            <Image
+              src="/images/logo-futmoney.png"
+              alt="FutMoney"
+              width={140}
+              height={50}
+              className="h-10 w-auto"
+            />
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-white/70"
+              aria-label="Fechar menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          <nav className="flex flex-col px-6 pt-6 gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors py-3"
+                className="text-lg font-medium text-white/80 hover:text-[#d4af37] transition-colors py-4 border-b border-white/[0.06]"
               >
                 {item.label}
               </Link>
@@ -92,9 +111,10 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
-              className="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold text-sm text-black mt-3"
+              className="inline-flex items-center justify-center px-5 py-4 rounded-xl font-bold text-base text-black mt-6"
               style={{
                 background: "linear-gradient(135deg, #f0d060 0%, #d4af37 50%, #b8860b 100%)",
+                boxShadow: "0 0 30px rgba(212,175,55,0.35)",
               }}
             >
               Garantir vaga
@@ -102,6 +122,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, HelpCircle } from "lucide-react"
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function FAQ() {
@@ -37,8 +37,8 @@ export function FAQ() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">FAQ</span>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-3xl sm:text-4xl font-bold leading-[1.12]"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em" }}
           >
             <span className="text-white">Perguntas </span>
             <span className="text-[#d4af37] gold-glow-text">frequentes</span>
@@ -101,6 +101,47 @@ export function FAQ() {
             </motion.div>
           ))}
         </div>
+
+        {/* WhatsApp - ainda com dúvida */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-10 rounded-2xl p-6 lg:p-7 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left"
+          style={{
+            background: "linear-gradient(165deg, rgba(22,21,15,0.95) 0%, rgba(10,10,8,1) 100%)",
+            border: "1px solid rgba(212,175,55,0.18)",
+          }}
+        >
+          <div
+            className="w-14 h-14 rounded-full shrink-0 flex items-center justify-center"
+            style={{ background: "rgba(212,175,55,0.12)", border: "1px solid rgba(212,175,55,0.25)" }}
+          >
+            <MessageCircle className="w-6 h-6 text-[#d4af37]" />
+          </div>
+          <div className="flex-1">
+            <h3
+              className="text-white font-semibold text-lg mb-1"
+              style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            >
+              Ainda ficou com alguma dúvida?
+            </h3>
+            <p className="text-white/45 text-sm leading-relaxed">
+              Fala direto com a gente no WhatsApp. Te respondemos pessoalmente antes de você decidir.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/5519988552541?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20FutMoney."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-transform hover:scale-[1.03]"
+            style={{ background: "#d4af37", color: "#0a0a08" }}
+          >
+            <MessageCircle className="w-4 h-4" />
+            Chamar no WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   )
