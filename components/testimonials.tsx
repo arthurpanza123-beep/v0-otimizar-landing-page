@@ -15,8 +15,8 @@ export function Testimonials() {
       highlight: "500 para 50k",
     },
     {
-      name: "Patryck Sander",
-      role: "Editor de vídeos",
+      name: "Larissa Mendes",
+      role: "Editora de vídeos",
       image: "/images/testimonial-2.png",
       content: "Antes editava por horas sem resultado. Agora entendo o que funciona e meus vídeos nunca engajaram tanto.",
       rating: 5,
@@ -70,10 +70,11 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -6 }}
-              className="group p-6 lg:p-7 rounded-2xl card-shine"
+              className="group p-6 lg:p-7 rounded-2xl card-shine transition-colors duration-300 hover:border-[rgba(212,175,55,0.25)]"
               style={{
-                background: "linear-gradient(165deg, rgba(18,18,14,0.8) 0%, rgba(8,8,6,0.95) 100%)",
-                border: "1px solid rgba(212,175,55,0.06)",
+                background: "linear-gradient(165deg, rgba(20,20,15,0.85) 0%, rgba(8,8,6,0.96) 100%)",
+                border: "1px solid rgba(212,175,55,0.12)",
+                boxShadow: "0 0 40px rgba(0,0,0,0.4)",
               }}
             >
               {/* Highlight */}
@@ -85,9 +86,9 @@ export function Testimonials() {
               </div>
 
               {/* Quote */}
-              <Quote className="w-8 h-8 text-[#d4af37]/10 mb-4" />
+              <Quote className="w-8 h-8 text-[#d4af37]/25 mb-4" />
 
-              <p className="text-white/60 leading-relaxed text-[15px] mb-6">
+              <p className="text-white/80 leading-relaxed text-[15px] mb-6">
                 {`"${t.content}"`}
               </p>
 
@@ -99,16 +100,16 @@ export function Testimonials() {
               </div>
 
               {/* Author */}
-              <div className="pt-5 border-t border-white/[0.04] flex items-center gap-3.5">
+              <div className="pt-5 border-t border-white/[0.06] flex items-center gap-3.5">
                 <div 
                   className="relative w-11 h-11 rounded-full overflow-hidden shrink-0"
-                  style={{ border: "2px solid rgba(212,175,55,0.2)" }}
+                  style={{ border: "2px solid rgba(212,175,55,0.35)", boxShadow: "0 0 16px rgba(212,175,55,0.18)" }}
                 >
-                  <Image src={t.image} alt={t.name} fill className="object-cover" />
+                  <Image src={t.image || "/placeholder.svg"} alt={t.name} fill className="object-cover" />
                 </div>
                 <div>
                   <p className="font-semibold text-white text-[15px]">{t.name}</p>
-                  <p className="text-white/35 text-xs">{t.role}</p>
+                  <p className="text-white/50 text-xs">{t.role}</p>
                 </div>
               </div>
             </motion.div>
