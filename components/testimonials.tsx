@@ -8,25 +8,25 @@ export function Testimonials() {
   const testimonials = [
     {
       name: "Caio Arantes",
-      role: "Criador de conteúdo",
+      role: "Criador de conteúdo de futebol",
       image: "/images/testimonial-1.png",
-      content: "O FutMoney mudou completamente minha visão. Em 3 meses, saí de 500 para 50 mil seguidores.",
+      content: "Eu postava direto e não passava de 500 seguidores. Apliquei o método de thumb e edição e em 3 meses bati 50 mil. Mudou meu jogo.",
       rating: 5,
-      highlight: "500 para 50k",
+      highlight: "500 → 50k seguidores",
     },
     {
       name: "Larissa Mendes",
       role: "Editora de vídeos",
       image: "/images/testimonial-2.png",
-      content: "Antes editava por horas sem resultado. Agora entendo o que funciona e meus vídeos nunca engajaram tanto.",
+      content: "Eu editava horas e o vídeo morria com 200 views. Depois que entendi os cortes e o ritmo que eles ensinam, meus Reels começaram a estourar.",
       rating: 5,
-      highlight: "Engajamento recorde",
+      highlight: "Reels viralizando",
     },
     {
-      name: "Ramon",
+      name: "Ramon Teixeira",
       role: "Criador de conteúdo",
       image: "/images/testimonial-3.png",
-      content: "A Caixa Preta sozinha já valeu o investimento. Economizei meses de erro com os bastidores.",
+      content: "A Caixa Preta sozinha já pagou o curso. Os bastidores me pouparam meses de tentativa e erro que eu ia gastar sozinho.",
       rating: 5,
       highlight: "Economizou meses",
     },
@@ -52,8 +52,8 @@ export function Testimonials() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Resultados</span>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.12]"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em" }}
           >
             <span className="text-white">Resultados de quem </span>
             <span className="text-[#d4af37] gold-glow-text">entrou em campo.</span>
