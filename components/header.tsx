@@ -73,16 +73,16 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - overlay fullscreen */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/[0.05]">
-          <nav className="flex flex-col px-5 py-4 gap-1">
+        <div className="lg:hidden fixed inset-0 top-16 z-40 bg-[#050505] flex flex-col">
+          <nav className="flex flex-col px-6 pt-6 gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors py-3"
+                className="text-lg font-medium text-white/80 hover:text-[#d4af37] transition-colors py-4 border-b border-white/[0.06]"
               >
                 {item.label}
               </Link>
@@ -92,9 +92,10 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
-              className="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold text-sm text-black mt-3"
+              className="inline-flex items-center justify-center px-5 py-4 rounded-xl font-bold text-base text-black mt-6"
               style={{
                 background: "linear-gradient(135deg, #f0d060 0%, #d4af37 50%, #b8860b 100%)",
+                boxShadow: "0 0 30px rgba(212,175,55,0.35)",
               }}
             >
               Garantir vaga
