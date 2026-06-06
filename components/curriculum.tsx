@@ -62,8 +62,8 @@ export function Curriculum() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">O conteúdo completo</span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.1] text-balance mb-4"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.12] text-balance mb-4"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
           >
             <span className="text-white">Você domina os </span>
             <span className="text-[#d4af37] gold-glow-text">3 pilares</span>

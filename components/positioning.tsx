@@ -45,8 +45,8 @@ export function Positioning() {
           <ScrollReveal direction="left">
             <div>
               <h2 
-                className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold mb-6 leading-[1.1] tracking-tight"
-                style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+                className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold mb-6 leading-[1.12]"
+                style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
               >
                 <span className="text-white">O futebol já prende sua atenção. </span>
                 <span className="text-[#d4af37] gold-glow-text">
