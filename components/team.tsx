@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Globe } from "lucide-react"
+import { Globe, BadgeCheck } from "lucide-react"
 
 function YoutubeIcon({ className }: { className?: string }) {
   return (
@@ -30,6 +30,12 @@ function TiktokIcon({ className }: { className?: string }) {
 }
 
 export function Team() {
+  const stats = [
+    { value: "100M+", label: "Views gerados" },
+    { value: "6 dígitos", label: "Faturados no YouTube" },
+    { value: "+10 anos", label: "De experiência real" },
+  ]
+
   const members = [
     {
       name: "Panza Footy Magic",
@@ -37,7 +43,7 @@ export function Team() {
       result: "100M+ views na trajetória",
       handle: "@panza.footy.magic",
       image: "/images/logo-panza.png",
-      imgClass: "object-contain p-1.5",
+      imgClass: "object-contain p-2",
       initials: "PF",
       links: [
         { type: "youtube", url: "https://www.youtube.com/@PanzaFootyMagic" },
@@ -61,7 +67,7 @@ export function Team() {
       result: "6 dígitos faturados",
       handle: "@f9parodias",
       image: "/images/logo-falso9.png",
-      imgClass: "object-contain p-5",
+      imgClass: "object-contain p-6",
       initials: "F9",
       links: [
         { type: "youtube", url: "https://www.youtube.com/@f9parodias" },
@@ -103,31 +109,63 @@ export function Team() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
       <div className="noise-overlay" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#d4af37]/[0.02] rounded-full blur-[150px] ambient-light" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#d4af37]/[0.025] rounded-full blur-[160px] ambient-light" />
 
-      <div className="relative max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative max-w-[1140px] mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 badge-premium">
-            <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Quem vai te ensinar</span>
+            <BadgeCheck className="w-4 h-4 text-[#d4af37]" />
+            <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">
+              Os 3 maiores do nicho
+            </span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.12] text-balance mb-4"
-            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
+            className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold leading-[1.1] text-balance mb-5"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.06em" }}
           >
-            <span className="text-white">Um trio que já fez </span>
-            <span className="text-[#d4af37] gold-glow-text">milhões de views.</span>
+            <span className="text-white">Você não vai aprender com teóricos.</span>
+            <br className="hidden sm:block" />
+            <span className="text-[#d4af37] gold-glow-text"> Vai aprender com quem vive disso.</span>
           </h2>
-          <p className="text-white/65 text-base sm:text-lg max-w-[620px] mx-auto leading-relaxed">
-            Não é teoria de quem nunca postou. É o método de três dos maiores
-            criadores de conteúdo de futebol do Brasil — que vivem disso todos os dias.
+          <p className="text-white/65 text-base sm:text-lg max-w-[640px] mx-auto leading-relaxed">
+            Um trio que construiu carreiras inteiras no futebol digital. Cada um é referência
+            no que faz — e agora juntaram tudo num só lugar.
           </p>
         </motion.div>
 
+        {/* Barra de stats agregadas */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden mb-12 max-w-[760px] mx-auto"
+          style={{ border: "1px solid rgba(212,175,55,0.15)", background: "rgba(212,175,55,0.08)" }}
+        >
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className="py-6 px-3 text-center flex flex-col items-center justify-center"
+              style={{ background: "linear-gradient(165deg, rgba(16,16,12,0.96) 0%, rgba(8,8,6,0.98) 100%)" }}
+            >
+              <span
+                className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#d4af37] gold-glow-text leading-none"
+                style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+              >
+                {stat.value}
+              </span>
+              <span className="text-white/50 text-[11px] sm:text-xs mt-2 leading-tight">{stat.label}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Cards dos membros */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {members.map((member, index) => (
             <motion.div
@@ -136,19 +174,35 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group p-7 rounded-2xl card-shine flex flex-col items-center text-center"
+              className="group relative p-7 lg:p-8 rounded-2xl card-shine flex flex-col items-center text-center overflow-hidden transition-colors duration-300 hover:border-[rgba(212,175,55,0.3)]"
               style={{
-                background: "linear-gradient(165deg, rgba(18,18,14,0.85) 0%, rgba(8,8,6,0.96) 100%)",
-                border: "1px solid rgba(212,175,55,0.1)",
+                background: "linear-gradient(165deg, rgba(20,20,15,0.9) 0%, rgba(8,8,6,0.97) 100%)",
+                border: "1px solid rgba(212,175,55,0.12)",
+                boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
               }}
             >
+              {/* Número grande de fundo */}
+              <span
+                className="absolute -top-4 -right-1 text-[7rem] font-black leading-none select-none pointer-events-none"
+                style={{
+                  fontFamily: "'Clash Display', var(--font-display)",
+                  color: "rgba(212,175,55,0.05)",
+                }}
+                aria-hidden="true"
+              >
+                {index + 1}
+              </span>
+
+              {/* Glow ambiente no hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#d4af37]/[0.03] pointer-events-none" />
+
               {/* Círculo da foto/logo */}
               <div
-                className="relative w-24 h-24 rounded-full mb-5 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300"
+                className="relative w-28 h-28 rounded-full mb-5 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300"
                 style={{
-                  background: "radial-gradient(circle at 30% 30%, rgba(212,175,55,0.18), rgba(8,8,6,1))",
-                  border: "2px solid rgba(212,175,55,0.35)",
-                  boxShadow: "0 0 30px rgba(212,175,55,0.15)",
+                  background: "radial-gradient(circle at 30% 30%, rgba(212,175,55,0.2), rgba(8,8,6,1))",
+                  border: "2px solid rgba(212,175,55,0.4)",
+                  boxShadow: "0 0 35px rgba(212,175,55,0.2)",
                 }}
               >
                 {member.image ? (
@@ -164,22 +218,25 @@ export function Team() {
                 )}
               </div>
 
-              <h3
-                className="text-lg font-bold text-white mb-1"
-                style={{ fontFamily: "'Clash Display', var(--font-display)" }}
-              >
-                {member.name}
-              </h3>
-              <p className="text-white/55 text-sm mb-3">{member.role}</p>
+              <div className="relative flex items-center gap-1.5 mb-1">
+                <h3
+                  className="text-xl font-bold text-white"
+                  style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+                >
+                  {member.name}
+                </h3>
+                <BadgeCheck className="w-[18px] h-[18px] text-[#d4af37]" />
+              </div>
+              <p className="relative text-white/55 text-sm mb-4">{member.role}</p>
 
               <div
-                className="px-3 py-1 rounded-full mb-4"
-                style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.15)" }}
+                className="relative px-3.5 py-1.5 rounded-full mb-5"
+                style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.2)" }}
               >
-                <span className="text-[#d4af37] text-xs font-semibold">{member.result}</span>
+                <span className="text-[#d4af37] text-[13px] font-semibold">{member.result}</span>
               </div>
 
-              <div className="flex items-center gap-4 text-white/45 mt-auto">
+              <div className="relative flex items-center gap-4 text-white/45 mt-auto">
                 {member.links.map((link, i) => (
                   <a
                     key={i}
@@ -187,9 +244,9 @@ export function Team() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={labelFor(link.type, member.name)}
-                    className="hover:text-[#d4af37] transition-colors"
+                    className="hover:text-[#d4af37] hover:scale-110 transition-all duration-200"
                   >
-                    {iconFor(link.type, "w-[18px] h-[18px]")}
+                    {iconFor(link.type, "w-5 h-5")}
                   </a>
                 ))}
                 <span className="text-xs">{member.handle}</span>
