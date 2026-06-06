@@ -36,7 +36,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center px-4 py-6 overflow-y-auto"
+      className="fixed inset-0 z-[100] flex flex-col px-4"
       onClick={onClose}
     >
       {/* Backdrop escuro */}
@@ -51,15 +51,15 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
         <X className="w-5 h-5" />
       </button>
 
-      {/* Conteúdo centralizado */}
+      {/* ÁREA CENTRAL — título + player centralizados na tela */}
       <div
-        className="relative z-10 w-full max-w-4xl flex flex-col items-center gap-5 my-auto"
+        className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-4xl mx-auto gap-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Cabeçalho acima do player */}
+        {/* Cabeçalho compacto acima do player */}
         <div className="text-center">
           <span
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide mb-3"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide mb-2.5"
             style={{
               background: "rgba(212,175,55,0.12)",
               border: "1px solid rgba(212,175,55,0.3)",
@@ -70,14 +70,14 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
             ASSISTA ANTES DE DECIDIR
           </span>
           <h3
-            className="text-xl sm:text-2xl font-bold text-white leading-tight text-balance"
+            className="text-lg sm:text-2xl font-bold text-white leading-tight text-balance"
             style={{ fontFamily: "'Clash Display', var(--font-display)" }}
           >
             Veja como o FutMoney funciona na prática
           </h3>
         </div>
 
-        {/* Container do vídeo — 16:9 responsivo */}
+        {/* Container do vídeo — 16:9 responsivo (âncora do centro) */}
         <div
           className="relative w-full aspect-video rounded-2xl overflow-hidden"
           style={{
@@ -94,8 +94,13 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
             style={{ border: "none", transform: "translate(-50%, -50%) scale(1.04)" }}
           />
         </div>
+      </div>
 
-        {/* CTA abaixo do player */}
+      {/* RODAPÉ FIXO — CTA + instrução pinados na base */}
+      <div
+        className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center gap-3 pb-6 pt-4"
+        onClick={(e) => e.stopPropagation()}
+      >
         <Link
           href="https://pay.kiwify.com.br/AA4gU1n?afid=6BwLcUwY"
           target="_blank"
