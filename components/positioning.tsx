@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { Video, Users, DollarSign } from "lucide-react"
 import { ScrollReveal, StaggerContainer, StaggerItem } from "./scroll-reveal"
-import { AnimatedCounter } from "./animated-counter"
 import { motion } from "framer-motion"
 
 export function Positioning() {
@@ -92,9 +91,9 @@ export function Positioning() {
                 }}
               >
                 <div className="text-2xl font-black text-[#d4af37]">
-                  +<AnimatedCounter value={500} />
+                  +100M
                 </div>
-                <div className="text-xs text-white/45">criadores ativos</div>
+                <div className="text-xs text-white/45">views geradas</div>
               </motion.div>
             </div>
           </ScrollReveal>

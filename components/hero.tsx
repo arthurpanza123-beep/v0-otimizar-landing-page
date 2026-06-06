@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Play, Eye, Users, BadgeCheck } from "lucide-react"
 import { VideoModal } from "./video-modal"
-import { AnimatedCounter } from "./animated-counter"
 import { motion } from "framer-motion"
 
 export function Hero() {
@@ -326,7 +325,7 @@ export function Hero() {
                 className="text-sm font-bold text-[#d4af37]"
                 style={{ fontFamily: "var(--font-space), system-ui, sans-serif" }}
               >
-                +<AnimatedCounter value={100000000} />
+                +100M
               </span>
               <span className="text-sm text-white/75 font-medium">de views geradas</span>
             </motion.div>
@@ -352,9 +351,9 @@ export function Hero() {
                 className="text-sm font-bold text-[#d4af37]"
                 style={{ fontFamily: "var(--font-space), system-ui, sans-serif" }}
               >
-                +<AnimatedCounter value={500} />
+                +10 anos
               </span>
-              <span className="text-sm text-white/75 font-medium">criadores impactados</span>
+              <span className="text-sm text-white/75 font-medium">de experiência</span>
             </motion.div>
 
             <motion.div
