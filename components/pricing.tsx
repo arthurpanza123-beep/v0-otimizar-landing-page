@@ -166,15 +166,38 @@ export function Pricing() {
             </div>
           </div>
 
-          {/* Guarantee */}
-          <div 
-            className="mt-4 p-3 rounded-xl flex items-center justify-center gap-2"
-            style={{ background: "rgba(212,175,55,0.03)", border: "1px solid rgba(212,175,55,0.08)" }}
+          {/* Guarantee — selo em destaque */}
+          <div
+            className="mt-5 p-5 rounded-2xl flex items-center gap-4"
+            style={{
+              background: "linear-gradient(165deg, rgba(212,175,55,0.07) 0%, rgba(8,8,6,0.9) 100%)",
+              border: "1px solid rgba(212,175,55,0.22)",
+              boxShadow: "0 0 40px rgba(212,175,55,0.06)",
+            }}
           >
-            <Shield className="w-4 h-4 text-[#d4af37]/70" />
-            <p className="text-white/40 text-[11px]">
-              <span className="text-white/60 font-medium">Garantia 7 dias</span> - Devolvemos 100%
-            </p>
+            <div
+              className="w-16 h-16 rounded-full flex flex-col items-center justify-center flex-shrink-0"
+              style={{
+                background: "radial-gradient(circle at 30% 30%, rgba(212,175,55,0.25), rgba(8,8,6,1))",
+                border: "2px solid rgba(212,175,55,0.4)",
+                boxShadow: "0 0 25px rgba(212,175,55,0.2)",
+              }}
+            >
+              <Shield className="w-6 h-6 text-[#d4af37]" />
+              <span className="text-[#d4af37] text-[9px] font-bold tracking-wider mt-0.5">7 DIAS</span>
+            </div>
+            <div>
+              <p
+                className="text-white font-bold text-[15px] mb-0.5"
+                style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+              >
+                Risco zero, garantido.
+              </p>
+              <p className="text-white/65 text-[12px] leading-snug">
+                Se em 7 dias você achar que não é pra você, devolvemos{" "}
+                <span className="text-[#d4af37] font-semibold">100% do seu dinheiro</span>. Sem perguntas.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
