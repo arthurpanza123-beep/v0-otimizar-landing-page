@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Globe } from "lucide-react"
 
 function YoutubeIcon({ className }: { className?: string }) {
   return (
@@ -20,44 +21,84 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
+function TiktokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.07v12.43a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .73-5.07V9.73a5.66 5.66 0 0 0-.73-.05A5.66 5.66 0 1 0 15.54 15V8.69a7.3 7.3 0 0 0 4.27 1.36V6.99a4.28 4.28 0 0 1-3.21-1.17Z" />
+    </svg>
+  )
+}
+
 export function Team() {
-  // Para o Thumbmaker: preencha "name", "result", "handle" e os links das redes,
-  // e adicione a logo em /public/images, apontando o campo "image".
   const members = [
     {
       name: "Panza Footy Magic",
       role: "Edição & Produção",
-      result: "+X milhões de views",
-      handle: "@panzafootymagic",
-      youtube: "https://youtube.com/@panzafootymagic",
-      instagram: "https://instagram.com/panzafootymagic",
+      result: "100M+ views na trajetória",
+      handle: "@panza.footy.magic",
       image: "/images/logo-panza.png",
       imgClass: "object-contain p-1.5",
       initials: "PF",
+      links: [
+        { type: "youtube", url: "https://www.youtube.com/@PanzaFootyMagic" },
+        { type: "instagram", url: "https://www.instagram.com/panza.footy.magic/" },
+        { type: "tiktok", url: "https://www.tiktok.com/@panzafootymagic_oficial" },
+      ],
     },
     {
       name: "L7",
       role: "Thumbnail & Design",
-      result: "+X canais escalados",
-      handle: "@l7",
-      youtube: "",
-      instagram: "",
+      result: "+10 anos de carreira",
+      handle: "Portfólio L7",
       image: "/images/team-l7.png",
       imgClass: "object-cover",
       initials: "L7",
+      links: [{ type: "portfolio", url: "https://l7alproducoes.myportfolio.com/" }],
     },
     {
       name: "Falso 9",
       role: "SEO & Algoritmo",
-      result: "+X milhões de views",
-      handle: "@falso9",
-      youtube: "https://youtube.com/@falso9",
-      instagram: "https://instagram.com/falso9",
+      result: "6 dígitos faturados",
+      handle: "@f9parodias",
       image: "/images/logo-falso9.png",
       imgClass: "object-contain p-5",
       initials: "F9",
+      links: [
+        { type: "youtube", url: "https://www.youtube.com/@f9parodias" },
+        { type: "tiktok", url: "https://www.tiktok.com/@f9parodias" },
+      ],
     },
   ]
+
+  const iconFor = (type: string, className: string) => {
+    switch (type) {
+      case "youtube":
+        return <YoutubeIcon className={className} />
+      case "instagram":
+        return <InstagramIcon className={className} />
+      case "tiktok":
+        return <TiktokIcon className={className} />
+      case "portfolio":
+        return <Globe className={className} />
+      default:
+        return null
+    }
+  }
+
+  const labelFor = (type: string, name: string) => {
+    switch (type) {
+      case "youtube":
+        return `YouTube de ${name}`
+      case "instagram":
+        return `Instagram de ${name}`
+      case "tiktok":
+        return `TikTok de ${name}`
+      case "portfolio":
+        return `Portfólio de ${name}`
+      default:
+        return name
+    }
+  }
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
@@ -75,15 +116,15 @@ export function Team() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Quem vai te ensinar</span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold tracking-tight leading-[1.1] text-balance mb-4"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-3xl sm:text-4xl lg:text-[3rem] font-bold leading-[1.12] text-balance mb-4"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
           >
-            <span className="text-white">Por trás de quem já fez </span>
+            <span className="text-white">Um trio que já fez </span>
             <span className="text-[#d4af37] gold-glow-text">milhões de views.</span>
           </h2>
-          <p className="text-white/65 text-base sm:text-lg max-w-[600px] mx-auto leading-relaxed">
-            Não é teoria de quem nunca postou. É o método de quem vive de
-            conteúdo de futebol todos os dias.
+          <p className="text-white/65 text-base sm:text-lg max-w-[620px] mx-auto leading-relaxed">
+            Não é teoria de quem nunca postou. É o método de três dos maiores
+            criadores de conteúdo de futebol do Brasil — que vivem disso todos os dias.
           </p>
         </motion.div>
 
@@ -139,32 +180,18 @@ export function Team() {
               </div>
 
               <div className="flex items-center gap-4 text-white/45 mt-auto">
-                {member.youtube ? (
+                {member.links.map((link, i) => (
                   <a
-                    href={member.youtube}
+                    key={i}
+                    href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`YouTube de ${member.name}`}
+                    aria-label={labelFor(link.type, member.name)}
                     className="hover:text-[#d4af37] transition-colors"
                   >
-                    <YoutubeIcon className="w-[18px] h-[18px]" />
+                    {iconFor(link.type, "w-[18px] h-[18px]")}
                   </a>
-                ) : (
-                  <YoutubeIcon className="w-[18px] h-[18px] opacity-40" />
-                )}
-                {member.instagram ? (
-                  <a
-                    href={member.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Instagram de ${member.name}`}
-                    className="hover:text-[#d4af37] transition-colors"
-                  >
-                    <InstagramIcon className="w-[18px] h-[18px]" />
-                  </a>
-                ) : (
-                  <InstagramIcon className="w-[18px] h-[18px] opacity-40" />
-                )}
+                ))}
                 <span className="text-xs">{member.handle}</span>
               </div>
             </motion.div>
