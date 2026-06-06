@@ -18,6 +18,7 @@ export function Header() {
   ]
 
   return (
+    <>
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-2xl border-b border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -72,10 +73,28 @@ export function Header() {
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Menu - overlay fullscreen */}
+      {/* Mobile Menu - overlay fullscreen (fora do header para evitar o backdrop-blur como containing block) */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 z-40 bg-[#050505] flex flex-col">
+        <div className="lg:hidden fixed inset-0 z-[60] bg-[#050505] flex flex-col">
+          {/* Barra superior do overlay com logo e fechar */}
+          <div className="flex items-center justify-between h-16 px-5 border-b border-white/[0.06] shrink-0">
+            <Image
+              src="/images/logo-futmoney.png"
+              alt="FutMoney"
+              width={140}
+              height={50}
+              className="h-10 w-auto"
+            />
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-white/70"
+              aria-label="Fechar menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
           <nav className="flex flex-col px-6 pt-6 gap-1">
             {navItems.map((item) => (
               <Link
@@ -103,6 +122,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   )
 }
