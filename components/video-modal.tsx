@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useCallback } from "react"
-import { X } from "lucide-react"
+import { X, BadgeCheck, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 interface VideoModalProps {
   isOpen: boolean
@@ -30,7 +31,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center px-4"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center px-4 py-6 overflow-y-auto"
       onClick={onClose}
     >
       {/* Backdrop escuro */}
@@ -39,37 +40,76 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
       {/* Botão fechar — sempre visível no topo da tela */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+        className="fixed top-4 right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
         aria-label="Fechar vídeo"
       >
         <X className="w-5 h-5" />
       </button>
 
-      {/* Container do vídeo — centralizado e responsivo */}
+      {/* Conteúdo centralizado */}
       <div
-        className="relative z-10 w-full max-w-4xl aspect-video rounded-2xl overflow-hidden"
+        className="relative z-10 w-full max-w-4xl flex flex-col items-center gap-5 my-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{
-          boxShadow: "0 0 60px rgba(212,175,55,0.2), 0 25px 80px rgba(0,0,0,0.8)",
-          border: "1px solid rgba(212,175,55,0.25)",
-          background: "#000",
-        }}
       >
-        {/* Player - iframe do Google Drive */}
-        <iframe
-          src={videoUrl}
-          className="absolute inset-0 w-full h-full"
-          allow="autoplay; encrypted-media; fullscreen"
-          allowFullScreen
-          style={{ border: "none" }}
-        />
-      </div>
+        {/* Cabeçalho acima do player */}
+        <div className="text-center">
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide mb-3"
+            style={{
+              background: "rgba(212,175,55,0.12)",
+              border: "1px solid rgba(212,175,55,0.3)",
+              color: "#e8c96a",
+            }}
+          >
+            <BadgeCheck className="w-3.5 h-3.5" />
+            ASSISTA ANTES DE DECIDIR
+          </span>
+          <h3
+            className="text-xl sm:text-2xl font-bold text-white leading-tight text-balance"
+            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+          >
+            Veja como o FutMoney funciona na prática
+          </h3>
+        </div>
 
-      {/* Instrução de fechar */}
-      <p className="relative z-10 mt-5 text-center text-white/45 text-sm">
-        Toque fora ou pressione{" "}
-        <kbd className="px-2 py-0.5 bg-white/10 rounded text-white/60">ESC</kbd> para fechar
-      </p>
+        {/* Container do vídeo — 16:9 responsivo */}
+        <div
+          className="relative w-full aspect-video rounded-2xl overflow-hidden"
+          style={{
+            boxShadow: "0 0 60px rgba(212,175,55,0.2), 0 25px 80px rgba(0,0,0,0.8)",
+            border: "1px solid rgba(212,175,55,0.25)",
+            background: "#000",
+          }}
+        >
+          <iframe
+            src={videoUrl}
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+            style={{ border: "none" }}
+          />
+        </div>
+
+        {/* CTA abaixo do player */}
+        <Link
+          href="https://pay.kiwify.com.br/AA4gU1n?afid=6BwLcUwY"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-base text-black w-full sm:w-auto"
+          style={{
+            background: "linear-gradient(135deg, #f0d060 0%, #d4af37 50%, #b8860b 100%)",
+            boxShadow: "0 0 30px rgba(212,175,55,0.35)",
+          }}
+        >
+          Quero garantir minha vaga
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+
+        <p className="text-center text-white/40 text-xs">
+          Toque fora ou pressione{" "}
+          <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-white/55">ESC</kbd> para fechar
+        </p>
+      </div>
     </div>
   )
 }
