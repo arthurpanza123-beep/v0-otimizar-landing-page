@@ -35,7 +35,10 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   if (!isOpen || !mounted) return null
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] bg-black" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-[100] bg-black flex items-center"
+      onClick={onClose}
+    >
 
       {/* X — canto superior direito */}
       <button
@@ -46,35 +49,39 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
         <X className="w-5 h-5" />
       </button>
 
-      {/* PLAYER — exatamente no centro vertical da tela, largura 100% */}
+      {/* PLAYER — largura total, centralizado verticalmente, overflow-hidden corta tarjas */}
       <div
-        className="absolute left-0 right-0"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
+        className="w-full shrink-0 overflow-hidden"
+        style={{
+          borderTop: "1.5px solid rgba(212,175,55,0.4)",
+          borderBottom: "1.5px solid rgba(212,175,55,0.4)",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* aspect-ratio 16:9 com padding-top trick — ocupa 100vw */}
-        <div
-          className="relative w-full"
-          style={{
-            paddingTop: "56.25%",
-            borderTop: "1.5px solid rgba(212,175,55,0.4)",
-            borderBottom: "1.5px solid rgba(212,175,55,0.4)",
-          }}
-        >
+        <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
           <iframe
             src={videoUrl}
-            className="absolute inset-0 w-full h-full"
             allow="autoplay; encrypted-media; fullscreen"
             allowFullScreen
-            style={{ border: "none" }}
+            style={{
+              border: "none",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              width: "100%",
+              height: "100%",
+              transform: "translate(-50%, -50%) scale(1.22)",
+            }}
           />
         </div>
       </div>
 
-      {/* CTA — fixo na base */}
+      {/* CTA — absoluto na base, não interfere na centralização do player */}
       <div
-        className="absolute bottom-0 left-0 right-0 px-4 pb-8 pt-5 flex flex-col items-center gap-3"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.9) 70%, transparent)" }}
+        className="absolute bottom-0 left-0 right-0 px-4 pb-8 pt-4 flex flex-col items-center gap-3"
+        style={{
+          background: "linear-gradient(to top, rgba(0,0,0,1) 60%, transparent)",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <Link
