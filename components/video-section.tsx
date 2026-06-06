@@ -34,8 +34,8 @@ export function VideoSection() {
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Vídeo</span>
           </div>
           <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-balance"
-            style={{ fontFamily: "'Clash Display', var(--font-display)" }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-balance leading-[1.15]"
+            style={{ fontFamily: "'Clash Display', var(--font-display)", letterSpacing: "-0.01em", wordSpacing: "0.08em" }}
           >
             <span className="text-white">Assista e entenda </span>
             <span className="text-[#d4af37] gold-glow-text">como funciona o método</span>

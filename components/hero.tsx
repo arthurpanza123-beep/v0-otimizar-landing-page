@@ -146,7 +146,7 @@ export function Hero() {
               textShadow: "0 0 30px rgba(212,175,55,0.7)",
             }}
           >
-            40M+
+            100M+
           </span>
           <span className="text-white/60 text-[10px] font-semibold tracking-widest uppercase mt-1">
             Views
@@ -326,7 +326,7 @@ export function Hero() {
                 className="text-sm font-bold text-[#d4af37]"
                 style={{ fontFamily: "var(--font-space), system-ui, sans-serif" }}
               >
-                +<AnimatedCounter value={40000000} />
+                +<AnimatedCounter value={100000000} />
               </span>
               <span className="text-sm text-white/75 font-medium">de views geradas</span>
             </motion.div>

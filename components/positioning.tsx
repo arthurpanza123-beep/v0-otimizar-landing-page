@@ -12,7 +12,7 @@ export function Positioning() {
       icon: Video,
       title: "Criar conteúdo",
       description: "Aprenda a produzir vídeos que prendem atenção e viralizam.",
-      stat: "40M+",
+      stat: "100M+",
       statLabel: "views",
     },
     {
