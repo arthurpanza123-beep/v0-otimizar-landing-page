@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, useState } from "react"
+import { createPortal } from "react-dom"
 import { X, BadgeCheck, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
@@ -12,6 +13,10 @@ interface VideoModalProps {
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   // Google Drive embed URL (esconde interface do Drive)
   const videoUrl = "https://drive.google.com/file/d/1fZwvFR0ax7FqQr61kpBI3EoSqM1v4um0/preview"
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
   const handleEscape = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") onClose()
   }, [onClose])
@@ -27,9 +32,9 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
     }
   }, [isOpen, handleEscape])
 
-  if (!isOpen) return null
+  if (!isOpen || !mounted) return null
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center px-4 py-6 overflow-y-auto"
       onClick={onClose}
@@ -110,6 +115,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
           <kbd className="px-1.5 py-0.5 bg-white/10 rounded text-white/55">ESC</kbd> para fechar
         </p>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
