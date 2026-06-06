@@ -33,7 +33,7 @@ export function Testimonials() {
   ]
 
   return (
-    <section id="resultados" className="relative py-28 lg:py-36 overflow-hidden scroll-mt-20">
+    <section id="resultados" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-20">
       {/* Noise */}
       <div className="noise-overlay" />
       
@@ -46,9 +46,9 @@ export function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 badge-premium">
+          <div             className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 badge-premium">
             <span className="text-xs text-[#d4af37] font-semibold tracking-wider uppercase">Resultados</span>
           </div>
           <h2 

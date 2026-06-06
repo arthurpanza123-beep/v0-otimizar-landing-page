@@ -3,7 +3,7 @@ import { Lock, Sparkles, Eye, Zap } from "lucide-react"
 
 export function BlackBox() {
   return (
-    <section className="relative py-32 lg:py-40 bg-[#050505] overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-[#050505] overflow-hidden">
       {/* Atmospheric glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#d4af37]/[0.03] rounded-full blur-[200px]" />
 

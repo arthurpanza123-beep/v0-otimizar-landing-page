@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function FinalCTA() {
   return (
-    <section className="relative py-32 lg:py-40 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <Image

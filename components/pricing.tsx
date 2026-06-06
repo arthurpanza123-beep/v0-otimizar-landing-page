@@ -17,7 +17,7 @@ export function Pricing() {
   ]
 
   return (
-    <section id="planos" className="relative py-24 lg:py-32 overflow-hidden scroll-mt-20">
+    <section id="planos" className="relative py-16 lg:py-24 overflow-hidden scroll-mt-20">
       {/* Noise */}
       <div className="noise-overlay" />
       

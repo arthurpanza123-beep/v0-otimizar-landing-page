@@ -107,7 +107,7 @@ export function Team() {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="noise-overlay" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#d4af37]/[0.025] rounded-full blur-[160px] ambient-light" />
 
@@ -236,7 +236,7 @@ export function Team() {
                 <span className="text-[#d4af37] text-[13px] font-semibold">{member.result}</span>
               </div>
 
-              <div className="relative flex items-center gap-4 text-white/45 mt-auto">
+              <div className="relative flex flex-wrap items-center justify-center gap-3 text-white/45 mt-auto">
                 {member.links.map((link, i) => (
                   <a
                     key={i}
