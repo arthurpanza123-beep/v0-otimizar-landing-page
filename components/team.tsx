@@ -13,6 +13,7 @@ export function Team() {
       result: "+X milhões de views",
       handle: "@panzafootymagic",
       image: "/images/logo-panza.png",
+      imgClass: "object-contain p-1.5",
       initials: "PF",
     },
     {
@@ -21,6 +22,7 @@ export function Team() {
       result: "+X canais escalados",
       handle: "@usuario",
       image: "",
+      imgClass: "object-contain p-1.5",
       initials: "TM",
     },
     {
@@ -29,6 +31,7 @@ export function Team() {
       result: "+X milhões de views",
       handle: "@falso9",
       image: "/images/logo-falso9.png",
+      imgClass: "object-contain p-5",
       initials: "F9",
     },
   ]
@@ -86,7 +89,7 @@ export function Team() {
               >
                 {member.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={member.image || "/placeholder.svg"} alt={member.name} className="w-full h-full object-contain p-1.5" />
+                  <img src={member.image || "/placeholder.svg"} alt={member.name} className={`w-full h-full ${member.imgClass}`} />
                 ) : (
                   <span
                     className="text-2xl font-black text-[#d4af37]"
