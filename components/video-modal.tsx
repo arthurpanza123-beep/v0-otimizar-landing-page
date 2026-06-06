@@ -10,7 +10,7 @@ interface VideoModalProps {
 }
 
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
-  const videoUrl = "https://drive.google.com/file/d/1fZwvFR0ax7FqQr61kpBI3EoSqM1v4um0/preview"
+  const videoUrl = "https://www.youtube.com/embed/Xf3jdd2ssNc?autoplay=1&rel=0&modestbranding=1&controls=1&color=white"
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
@@ -34,33 +34,28 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex flex-col bg-black"
+      className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center"
       onClick={onClose}
     >
-      {/* Barra superior: botão fechar */}
-      <div
-        className="flex items-center justify-end px-4 shrink-0"
-        style={{ height: "52px" }}
-        onClick={(e) => e.stopPropagation()}
+      {/* Botão fechar */}
+      <button
+        onClick={onClose}
+        aria-label="Fechar vídeo"
+        className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white transition-colors"
+        style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
       >
-        <button
-          onClick={onClose}
-          aria-label="Fechar vídeo"
-          className="w-10 h-10 flex items-center justify-center rounded-full text-white/80 hover:text-white transition-colors"
-          style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
-        >
-          <X className="w-5 h-5" />
-        </button>
-      </div>
+        <X className="w-5 h-5" />
+      </button>
 
-      {/* Player: ocupa todo o espaço restante, sem corte, sem escala */}
+      {/* Player YouTube — 16:9, largura total, sem corte */}
       <div
-        className="flex-1 min-h-0"
+        className="w-full"
+        style={{ aspectRatio: "16/9" }}
         onClick={(e) => e.stopPropagation()}
       >
         <iframe
           src={videoUrl}
-          allow="autoplay; encrypted-media; fullscreen"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
           allowFullScreen
           style={{
             border: "none",
