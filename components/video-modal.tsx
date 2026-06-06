@@ -11,7 +11,6 @@ interface VideoModalProps {
 export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   // Google Drive embed URL (esconde interface do Drive)
   const videoUrl = "https://drive.google.com/file/d/1fZwvFR0ax7FqQr61kpBI3EoSqM1v4um0/preview"
-
   const handleEscape = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") onClose()
   }, [onClose])
